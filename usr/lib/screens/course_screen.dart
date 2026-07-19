@@ -15,8 +15,8 @@ class _CourseScreenState extends State<CourseScreen> {
   @override
   void initState() {
     super.initState();
-    if (javaCourse.modules.isNotEmpty && javaCourse.modules.first.lessons.isNotEmpty) {
-      selectedLesson = javaCourse.modules.first.lessons.first;
+    if (javaCourse.isNotEmpty && javaCourse.first.lessons.isNotEmpty) {
+      selectedLesson = javaCourse.first.lessons.first;
     }
   }
 
@@ -67,9 +67,9 @@ class _CourseScreenState extends State<CourseScreen> {
 
   Widget _buildSidebar() {
     return ListView.builder(
-      itemCount: javaCourse.modules.length,
+      itemCount: javaCourse.length,
       itemBuilder: (context, moduleIndex) {
-        final module = javaCourse.modules[moduleIndex];
+        final module = javaCourse[moduleIndex];
         return ExpansionTile(
           initiallyExpanded: true,
           title: Text(module.title, style: const TextStyle(fontWeight: FontWeight.bold)),

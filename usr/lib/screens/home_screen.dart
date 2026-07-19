@@ -69,9 +69,9 @@ class HomeScreen extends StatelessWidget {
                   ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: javaCourse.modules.length,
+                    itemCount: javaCourse.length,
                     itemBuilder: (context, index) {
-                      final module = javaCourse.modules[index];
+                      final module = javaCourse[index];
                       return Card(
                         margin: const EdgeInsets.only(bottom: 16),
                         child: ExpansionTile(
@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
                           children: module.lessons.map((lesson) => ListTile(
                             leading: const Icon(Icons.play_circle_outline, color: Colors.blue),
                             title: Text(lesson.title),
-                            trailing: Text('${lesson.durationMinutes} min'),
+                            trailing: Text('${lesson.duration.inMinutes} min'),
                           )).toList(),
                         ),
                       );
